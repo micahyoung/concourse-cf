@@ -10,15 +10,15 @@ CF_ATC_HOSTNAME=${1:?$USAGE}
 CONCOURSE_ATC_USERNAME=${2:?$USAGE}
 CONCOURSE_ATC_PASSWORD=${3:?$USAGE}
 
-#mkdir app/
-#
-#pushd app
-#  ssh-keygen -t rsa -f tsa_host_key -N ''
-#  ssh-keygen -t rsa -f worker_key -N ''
-#  ssh-keygen -t rsa -f session_signing_key -N ''
-#  
-#  cp worker_key.pub authorized_worker_keys
-#popd
+mkdir app/
+
+pushd app
+  ssh-keygen -t rsa -f tsa_host_key -N ''
+  ssh-keygen -t rsa -f worker_key -N ''
+  ssh-keygen -t rsa -f session_signing_key -N ''
+  
+  cp worker_key.pub authorized_worker_keys
+popd
 
 cp atc.sh worker.sh worker.json app/
 
