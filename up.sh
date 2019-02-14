@@ -42,7 +42,7 @@ cf push concourse-worker \
 cf create-service elephantsql turtle concourse-postgres
 cf bind-service concourse-atc concourse-postgres
 
-cf allow-access concourse-worker concourse-atc --protocol tcp --port 22222
+cf add-network-policy concourse-worker --destination-app concourse-atc --protocol tcp --port 22222
 
 cf set-env concourse-atc CONCOURSE_ATC_USERNAME $CONCOURSE_ATC_USERNAME
 cf set-env concourse-atc CONCOURSE_ATC_PASSWORD $CONCOURSE_ATC_PASSWORD
